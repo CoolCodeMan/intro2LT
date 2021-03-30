@@ -1,0 +1,23 @@
+# NLP projektityö / luokittelija / Jenny
+
+# avaus ja encoding
+f = open("joy_train.tsv", "r", encoding="utf-8")
+
+lines = f.readlines()
+texts = []
+labels = []
+
+# jako eri listoihin
+for i in lines:
+    line = i.replace("\n", "").split("\t")
+    texts.append(line[1])
+    labels.append(line[0])
+
+print("This many texts", len(texts))
+print("This many labels", len(labels))
+print()
+for label, text in list(zip(labels, texts))[:46]:
+    print(label, text[:50]+"...")
+    # tämä siis muokattu week 3:n JSON-tiedoston käsittelystä tsv:lle toimivaksi, mutta tästä pidemmälle en ehtinyt vielä
+
+f.close()
